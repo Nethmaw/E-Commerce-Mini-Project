@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "/a6eIwruC/bobYa0lIzVg1c7Qlo4W6iZZtFGC0EMXZcepNfpmtjwgzZgaEuuL6ut1wnLugqisD8W/G4zzB4m5w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\NethmaWimalasuriya\\source\\repos\\e-Commerce.Final.Project\\e-Commerce.Final.Project\\e-Commerce.Final.Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\lumenworkscsvreader\\4.0.0\\lumenworkscsvreader.4.0.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\microsoft.net.test.sdk\\17.5.0\\microsoft.net.test.sdk.17.5.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.5.0\\microsoft.testplatform.objectmodel.17.5.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\microsoft.testplatform.testhost\\17.5.0\\microsoft.testplatform.testhost.17.5.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\nunit.analyzers\\3.6.0\\nunit.analyzers.3.6.0.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\nunit.consolerunner\\3.16.3\\nunit.consolerunner.3.16.3.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\nunit3testadapter\\4.3.1\\nunit3testadapter.4.3.1.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\nunitxml.testlogger\\3.0.131\\nunitxml.testlogger.3.0.131.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\selenium.support\\4.8.1\\selenium.support.4.8.1.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\selenium.webdriver\\4.8.1\\selenium.webdriver.4.8.1.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\selenium.webdriver.chromedriver\\110.0.5481.7700\\selenium.webdriver.chromedriver.110.0.5481.7700.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\selenium.webdriver.geckodriver\\0.32.2\\selenium.webdriver.geckodriver.0.32.2.nupkg.sha512",
+    "C:\\Users\\NethmaWimalasuriya\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

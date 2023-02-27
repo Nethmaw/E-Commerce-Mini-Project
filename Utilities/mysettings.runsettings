@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+	<!--configuration elements-->
+	<RunConfiguration>
+		<EnvironmentVariables>
+			<!--List of environment variables to set-->
+			<user_email_address>nethma.wimalasuriya@nfocus.co.uk</user_email_address>
+			<user_password>AKGVEKdnfei319f!</user_password>
+			<user_first_name>Agnes</user_first_name>
+			<user_last_name>Boss</user_last_name>
+			<company_name>Microsoft Corporation</company_name>
+			<street_address>62 Petty France</street_address>
+			<house_unit>Apartment 2C</house_unit>
+			<town_city>London</town_city>
+			<county>Greater London</county>
+			<postcode>SW1H 9EU</postcode>
+			<phone>02072223386</phone>	
+		</EnvironmentVariables>
+	</RunConfiguration>
+	<TestRunParameters>
+			<Parameter name="browser" value="firefox"/>
+			<Parameter name="url" value="https://www.edgewordstraining.co.uk/demo-site/"/>
+	</TestRunParameters>
+</RunSettings>

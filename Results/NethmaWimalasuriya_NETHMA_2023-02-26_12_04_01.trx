@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="85640ca4-4c0f-42d0-823b-6dfd46364b51" name="NethmaWimalasuriya@NETHMA 2023-02-26 12:04:01" runUser="AzureAD\NethmaWimalasuriya" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2023-02-26T12:04:01.1620742+00:00" queuing="2023-02-26T12:04:01.1620743+00:00" start="2023-02-26T12:03:44.2495958+00:00" finish="2023-02-26T12:04:14.7325190+00:00" />
+  <TestSettings name="default" id="d6779231-961a-4a37-8397-883b184735b8">
+    <Deployment runDeploymentRoot="NethmaWimalasuriya_NETHMA_2023-02-26_12_04_01" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="80366cc3-e2b7-4efb-92f4-6cc7d32092f7" testId="b79925cd-5a66-88ea-ec63-5bfca20dd92e" testName="TestCase2" computerName="NETHMA" duration="00:00:13.5501750" startTime="2023-02-26T12:04:01.1280313+00:00" endTime="2023-02-26T12:04:14.6782052+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="80366cc3-e2b7-4efb-92f4-6cc7d32092f7">
+      <Output>
+        <StdOut>d&#xD;
+Firefox Browser has opened&#xD;
+Attempt to login a registered user</StdOut>
+        <ErrorInfo>
+          <Message>System.ArgumentNullException : text cannot be null (Parameter 'text')</Message>
+          <StackTrace>   at OpenQA.Selenium.WebElement.SendKeys(String text)&#xD;
+   at e_Commerce.Final.Project.POMClasses.LogInPOM.SetUsername() in C:\Users\NethmaWimalasuriya\source\repos\e-Commerce.Final.Project\e-Commerce.Final.Project\POMClasses\LogInPOM.cs:line 40&#xD;
+   at e_Commerce.Final.Project.TestCases.TestCaseTwo.TestCase2() in C:\Users\NethmaWimalasuriya\source\repos\e-Commerce.Final.Project\e-Commerce.Final.Project\TestCases\TestCaseTwo.cs:line 29
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a0b85972-a998-41f7-aea0-df56bb54d165" testId="c422f37e-cfcc-9883-cf3d-a2be03938301" testName="TestCase1" computerName="NETHMA" duration="00:00:16.3782229" startTime="2023-02-26T12:03:44.7464283+00:00" endTime="2023-02-26T12:04:01.1245946+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0b85972-a998-41f7-aea0-df56bb54d165">
+      <Output>
+        <StdOut>d&#xD;
+Firefox Browser has opened</StdOut>
+        <ErrorInfo>
+          <Message>System.ArgumentNullException : text cannot be null (Parameter 'text')</Message>
+          <StackTrace>   at OpenQA.Selenium.WebElement.SendKeys(String text)&#xD;
+   at e_Commerce.Final.Project.POMClasses.RegisterNewUserPOM.SetEmailAddress() in C:\Users\NethmaWimalasuriya\source\repos\e-Commerce.Final.Project\e-Commerce.Final.Project\POMClasses\RegisterNewUserPOM.cs:line 40&#xD;
+   at e_Commerce.Final.Project.TestCaseOne.TestCase1() in C:\Users\NethmaWimalasuriya\source\repos\e-Commerce.Final.Project\e-Commerce.Final.Project\TestCases\TestCaseOne.cs:line 32
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="TestCase1" storage="c:\users\nethmawimalasuriya\source\repos\e-commerce.final.project\e-commerce.final.project\bin\debug\net6.0\e-commerce.final.project.dll" id="c422f37e-cfcc-9883-cf3d-a2be03938301">
+      <Execution id="a0b85972-a998-41f7-aea0-df56bb54d165" />
+      <TestMethod codeBase="C:\Users\NethmaWimalasuriya\source\repos\e-Commerce.Final.Project\e-Commerce.Final.Project\bin\Debug\net6.0\e-Commerce.Final.Project.dll" adapterTypeName="executor://nunit3testexecutor/" className="e_Commerce.Final.Project.TestCaseOne" name="TestCase1" />
+    </UnitTest>
+    <UnitTest name="TestCase2" storage="c:\users\nethmawimalasuriya\source\repos\e-commerce.final.project\e-commerce.final.project\bin\debug\net6.0\e-commerce.final.project.dll" id="b79925cd-5a66-88ea-ec63-5bfca20dd92e">
+      <Execution id="80366cc3-e2b7-4efb-92f4-6cc7d32092f7" />
+      <TestMethod codeBase="C:\Users\NethmaWimalasuriya\source\repos\e-Commerce.Final.Project\e-Commerce.Final.Project\bin\Debug\net6.0\e-Commerce.Final.Project.dll" adapterTypeName="executor://nunit3testexecutor/" className="e_Commerce.Final.Project.TestCases.TestCaseTwo" name="TestCase2" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="b79925cd-5a66-88ea-ec63-5bfca20dd92e" executionId="80366cc3-e2b7-4efb-92f4-6cc7d32092f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c422f37e-cfcc-9883-cf3d-a2be03938301" executionId="a0b85972-a998-41f7-aea0-df56bb54d165" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="0" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 4.3.1.0: Test execution started&#xD;
+Running all tests in C:\Users\NethmaWimalasuriya\source\repos\e-Commerce.Final.Project\e-Commerce.Final.Project\bin\Debug\net6.0\e-Commerce.Final.Project.dll&#xD;
+   NUnit3TestExecutor discovered 2 of 2 NUnit test cases using Current Discovery mode, Non-Explicit run&#xD;
+NUnit Adapter 4.3.1.0: Test execution complete&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="NETHMA" outcome="Warning" timestamp="2023-02-26T12:04:01.1414202+00:00">
+        <Text>d&#xD;
+Firefox Browser has opened&#xD;
+</Text>
+      </RunInfo>
+      <RunInfo computerName="NETHMA" outcome="Warning" timestamp="2023-02-26T12:04:14.6790459+00:00">
+        <Text>d&#xD;
+Firefox Browser has opened&#xD;
+Attempt to login a registered user&#xD;
+</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
