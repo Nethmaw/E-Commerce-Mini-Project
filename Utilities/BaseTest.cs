@@ -26,8 +26,8 @@ namespace e_Commerce.Final.Project.Utilities
             browser = TestContext.Parameters["browser"];                                            //To run test in cmd, type in: dotnet test --results-directory "Results" --logger:trx --settings Utilities\mysettings.runsettings         
             browser = browser.ToLower().Trim();                                                     //To run test in developer powershell, type in: vstest.console.exe e-Commerce.Final.Project\e-Commerce.Final.Project\bin\Debug\net6.0\e-Commerce.Final.Project.dll /Settings:e-Commerce.Final.Project\e-Commerce.Final.Project\Utilities\mysettings.runsettings /Logger:trx
             Console.WriteLine("Tests reports produced when ran in cmd and developer powershell");   //See reports pages 
-
-            //Choosing the browser
+                                                                                                    //To run tests in cmd, with a html report, type in: dotnet test --results-directory "Results" --logger:html --settings Utilities\mysettings.runsettings
+                                                                                                    //Choosing the browser
             switch (browser)
             {
                 case "firefox":
@@ -65,6 +65,7 @@ namespace e_Commerce.Final.Project.Utilities
         public void TearDown()
         {
             driver.Close();
+            Console.WriteLine("Browser has closed");
         }
     }
 }

@@ -40,8 +40,9 @@ namespace e_Commerce.Final.Project.Utilities
             IWebElement form = driver.FindElement(locator);
             ITakesScreenshot formss = form as ITakesScreenshot;
             var screenshotForm = formss.GetScreenshot();
+            DateTime now = DateTime.Now;
             screenshotForm.SaveAsFile(@"C:\Users\NethmaWimalasuriya\OneDrive - nFocus Limited\Pictures\Screenshots\" + filename, ScreenshotImageFormat.Png);
-            TestContext.WriteLine("Screenshot taken - see report");     //Could add a DateTime variable
+            TestContext.WriteLine("Screenshot taken - see report");
             TestContext.AddTestAttachment(@"C:\Users\NethmaWimalasuriya\OneDrive - nFocus Limited\Pictures\Screenshots\" + filename);
         }
 

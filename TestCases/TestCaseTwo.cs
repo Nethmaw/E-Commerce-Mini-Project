@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 using static e_Commerce.Final.Project.Utilities.StaticHelpers;
 
 namespace e_Commerce.Final.Project.TestCases
@@ -19,26 +20,28 @@ namespace e_Commerce.Final.Project.TestCases
         {
             //Navigate to the homepage
             driver.Url = "https://www.edgewordstraining.co.uk/demo-site/";
+            Console.WriteLine("On the homepage");
 
             //Dismiss the bottom warning
             driver.FindElement(By.CssSelector("body > p > a")).Click();
+            Console.WriteLine("Bottom warning is dismissed");
 
-            //Log in as a Registered User with associated POM class
+            //Log in as a Registered User with LogIn POM class
             Console.WriteLine("Attempt to login a registered user");
             LogInPOM existingUser = new LogInPOM(driver);
             existingUser.GoMyAccount().SetUsername().SetPassword().GoLogIn();
             WaitForElement(By.CssSelector(".entry-title"), 3, driver);                                      //Use of static helper
             string headingText = driver.FindElement(By.CssSelector(".entry-title")).Text;
-            Assert.IsTrue(headingText == "My account", "User not logged in");
-            //headingText.Should().Contain("My account");                                   //Fluent assertion?
+            headingText.Should().Contain("My account");                                                     //Use of fluent assertions                         
             Console.WriteLine("Login Success");
 
             //Entering the Shop
             driver.FindElement(By.LinkText("Shop")).Click();
             driver.FindElement(By.CssSelector("html")).Click();
             WaitForElement(By.CssSelector("html"), 3, driver);
+            Console.WriteLine("On the shop page");
 
-            //Selecting an item of clothing to be added to the Cart with associated POM class
+            //Selecting an item of clothing to be added to the Cart with SelectItemOfClothing POM class
             Console.WriteLine("Starting search for an item of clothing");
             ScrollDown(driver, 1000);
             Console.WriteLine("Scrolling down to view the list of products");
@@ -55,11 +58,11 @@ namespace e_Commerce.Final.Project.TestCases
             Thread.Sleep(3000);
             Console.WriteLine("Checkout page is displayed");
 
-            //Inputting Billing details with associated POM class
+            //Inputting Billing details with InputBillingDetails POM class
             InputBillingDetailsPOM billingDetails = new InputBillingDetailsPOM(driver);
             billingDetails.ClickFirstName().ClickLastName().ClickCompanyName().ClickStreetAddress().ClickHouseUnit().ClickTownCity().ClickCounty().ClickPostcode().ClickPhone().ClickCountryRegion();
             WaitForElement(By.CssSelector("#post-6 > div > div"), 3, driver);
-            Console.WriteLine("All billing details have been correctly inputted");
+            Console.WriteLine("User's billing details have been correctly inputted");
 
             //Selecting payment method
             ScrollDown(driver, 600);
@@ -87,7 +90,7 @@ namespace e_Commerce.Final.Project.TestCases
             WaitForElement(By.CssSelector("#post-7 > div > div > div > table"), 3, driver);
             Console.WriteLine("Order number is correctly displayed in the orders page under My account");
 
-            //Logout with associated POM class
+            //Logout with LogOut POM class
             LogOutPOM logOut = new LogOutPOM(driver);
             logOut.GoMyAccount().ClickLogOut();
             WaitForElement(By.CssSelector("#post-7 > header > h1"), 3, driver);

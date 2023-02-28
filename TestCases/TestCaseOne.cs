@@ -27,7 +27,7 @@ namespace e_Commerce.Final.Project
             string browser = TestContext.Parameters["browser"];                                     //Browser and url variable is located in the test run parameters in the mysettings.runsettings
             string url = TestContext.Parameters["url"];
 
-            //Registering a New User with associated POM class                    
+            //Registering a New User with RegisterNewUser POM class                    
             driver.Url = url;
             RegisterNewUserPOM newUser = new RegisterNewUserPOM(driver);
             newUser.GoMyAccount().SetEmailAddress().SetPassword().GoEnter();
@@ -43,7 +43,7 @@ namespace e_Commerce.Final.Project
             //Dismiss the bottom warning
             driver.FindElement(By.CssSelector("body > p > a")).Click();
 
-            //Log in as a Registered User with associated POM class
+            //Log in as a Registered User with LogIn POM class
             Console.WriteLine("Attempt to login a registered user");
             LogInPOM existingUser = new LogInPOM(driver);
             existingUser.GoMyAccount().SetUsername().SetPassword().GoLogIn();
@@ -56,7 +56,7 @@ namespace e_Commerce.Final.Project
             driver.FindElement(By.LinkText("Shop")).Click();
             driver.FindElement(By.CssSelector("html")).Click();
             WaitForElement(By.CssSelector("html"), 3, driver);
-            Console.WriteLine("On the Shop page");
+            Console.WriteLine("Successfully navigated to the Shop page");
 
             //Selecting an item of clothing to be added to the Cart with associated POM class
             Console.WriteLine("Starting search for an item of clothing");
@@ -76,44 +76,51 @@ namespace e_Commerce.Final.Project
             driver.FindElement(By.CssSelector("#coupon_code")).SendKeys("edgewords");
             driver.FindElement(By.CssSelector("#post-5 > div > div > form > table > tbody > tr:nth-child(2) > td > div > button")).Submit();
             Thread.Sleep(3000);
-            Console.WriteLine("The coupon has been applied");
+            Console.WriteLine("The coupon code (edgewords) has been applied");
 
             //Calculating the correct discount
             string couponDiscount = driver.FindElement(By.CssSelector("[data-title='Coupon\\: edgewords'] .woocommerce-Price-amount")).Text;
-            string subtotal = driver.FindElement(By.CssSelector(".product-subtotal  bdi")).Text;
-            char[] charsToTrim = { '£', '.' };
-            string cleanSubtotal = subtotal.Trim(charsToTrim);                                                                      //Use of trim string method and sub string method to extract number from the string
-            int startIndex = 0;
+            string subtotal = driver.FindElement(By.CssSelector(".product-subtotal  bdi")).Text;                      
+            int startIndex = 1;                                         
             int length = 2;
-            string substring = cleanSubtotal.Substring(startIndex, length);
-            Console.WriteLine(substring);
-            decimal decimalValue = 0.15m;
-            decimal result = decimalValue * int.Parse(substring);
-            string resultText = result.ToString();
-            Console.WriteLine("Actual discount calculated should be " + resultText);
+            string subtotalInteger = subtotal.Substring(startIndex, length);                                     //Use of sub string method to extract only the integer from the subtotal string
+            Console.WriteLine("The subtotal is £" + subtotalInteger + ".00");
+            decimal correctPercentage = 0.15m;
+            decimal result = correctPercentage * int.Parse(subtotalInteger);
+            Console.WriteLine("Correct discount calculated with the coupon should be £" + result);
+
+            //Calculating the wrong discount
+            decimal wrongPercentage = 0.1m;
+            decimal incorrectResult = wrongPercentage * int.Parse(subtotalInteger);
+            Console.WriteLine("Incorrect discount calculated with the coupon is £" + incorrectResult + "0");
 
             //Validating the correct discount has been applied
-            Assert.That(couponDiscount == "£" + resultText, "Correct discount has not been applied");                         
+            Assert.That(couponDiscount == "£" + result, "Correct discount has not been applied");                         
             try
             {
-                Assert.That(couponDiscount, Is.EqualTo("£" + resultText).IgnoreCase, "Correct discount has not been applied");
-                Console.WriteLine("The correct discount has been applied - £8.25 has been deducted");
+                Assert.That(couponDiscount, Is.EqualTo("£" + result).IgnoreCase, "Correct discount has not been applied");
+                Console.WriteLine("The correct discount has been applied - " + couponDiscount + " has been deducted");
             }
             catch (AssertionException) 
             {
-                Assert.That(couponDiscount, Is.EqualTo("£5.50").IgnoreCase, "Correct discount has been applied");
-                Console.WriteLine("The correct discount has not been applied - amount deducted should state £8.50, rather than £5.50");
+                Assert.That(couponDiscount, Is.EqualTo("£" + incorrectResult).IgnoreCase, "Correct discount has been applied");
+                Console.WriteLine("The correct discount has not been applied - amount deducted should state £" + couponDiscount + ", rather than £" + incorrectResult + "0" );
 
             }
 
             //Verifying total amount calculated after coupon and shipping is correct
             ScrollDown(driver, 300);
+            char[] charsToTrim = { '£' };                                                                   //Use of Trim method to get the coupon discount in integer format
+            string couponDiscountInteger = couponDiscount.TrimStart(charsToTrim);                                               
+            string shippingCosts = driver.FindElement(By.CssSelector("label  bdi")).Text[1..];              //Use of string slicing/range indexing method to get the shipping costs in integer format
+            Console.WriteLine("The subtotal is £" + subtotalInteger +".00, the coupon discount is £" + couponDiscountInteger + ", and the shipping cost is £" + shippingCosts);
+            float totalCalculated = int.Parse(subtotalInteger) + float.Parse(shippingCosts) - float.Parse(couponDiscountInteger);
             string total = driver.FindElement(By.CssSelector("strong > .amount.woocommerce-Price-amount > bdi")).Text;
-            Assert.That(total == "£50.70", "Total amount charged is wrong");
+            Assert.That(total, Is.EqualTo("£" + totalCalculated + "0"), "Total amount charged is wrong");
             try
             {
-                Assert.That(total, Is.EqualTo("£50.70").IgnoreCase, "Total amount charged is wrong");
-                Console.WriteLine("The total amount charged (including shipping costs and coupon discount) is correct");
+                Assert.That(total, Is.EqualTo("£" + totalCalculated + "0").IgnoreCase, "Total amount charged is wrong");
+                Console.WriteLine("The total amount charged (£" + totalCalculated + "0) is correct");
             }
             catch
             {
@@ -121,14 +128,14 @@ namespace e_Commerce.Final.Project
             }
             Thread.Sleep(3000);
 
-            //Log Out
+            //Log Out with LogOut POM class
             ScrollDown(driver, 300);
             LogOutPOM logOut = new LogOutPOM(driver);
             logOut.GoMyAccount().ClickLogOut();
             Thread.Sleep(3000);
-            Console.WriteLine("Successfully logged out");
+            Console.WriteLine("User has successfully logged out");
 
-            //Clear the cart
+            //Clear the cart with ClearCart POM class
             existingUser.GoMyAccount().SetUsername().SetPassword().GoLogIn();
             ClearCartPOM clear = new ClearCartPOM(driver);
             clear.GoCart().GoRemoveItem();
